@@ -1,0 +1,35 @@
+main:
+  gpus: 1
+  precision: 32
+  deterministic: true
+  checkpoint: null
+  seed: 3
+  run_dir: /gpfs3/well/win-camcan/projects/fm_datasets/2_tokenize/outputs/schaefer100_camcan_all/runs/seed-3
+data:
+  sfreq: 250.0
+  val_split: 0.1
+  split_method: subject_window
+  num_workers: 16
+  version: schaefer100_camcan_all
+  combined_root: /gpfs3/well/win-camcan/projects/fm_datasets/2_tokenize/outputs/schaefer100_camcan_all
+  sessions_csv: /gpfs3/well/win-camcan/projects/fm_datasets/2_tokenize/outputs/schaefer100_camcan_all/sessions.csv
+  subset_csv: /gpfs3/well/win-camcan/projects/fm_datasets/2_tokenize/outputs/schaefer100_camcan_all/subsets/subset_train.csv
+  test_csv: /gpfs3/well/win-camcan/projects/fm_datasets/2_tokenize/outputs/schaefer100_camcan_all/subsets/subset_test.csv
+model_config:
+  name: ephys_tokenizer
+  n_tokens: 128
+  rnn_n_units: 128
+  sequence_length: 200
+  token_dim: 10
+  token_kernel_padding: causal
+  training:
+    batch_size: 64
+    n_epochs: 20
+    optimizer:
+      learning_rate: 1.0e-05
+    multi_gpu: false
+  callback:
+    temperature_annealing:
+      n_annealing_epochs: 20
+      n_stages: 20
+  n_channels: 100
