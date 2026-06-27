@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# SLURM logs
+slurm/logs/
+
+# Training checkpoints (full optimizer state, written by train.py).
+# The release ships the bare model/weights.pt instead — keep that tracked.
+model/latest.pt
+model/best_model.pt
+model/snapshot_e*.pt
+
+# Regenerable data-prep outputs (rebuild: python prepare_data.py).
+data/manifest.pt
+data/holdout_sessions.json
+
+# Large, regenerable feature table (rebuild: python compute_session_features.py).
+# The fitted transform (data/session_feature_transform.npz) IS tracked.
+data/session_features.npz
+
+# OS cruft
+.DS_Store
