@@ -2,6 +2,8 @@
 
 An autoregressive foundation model for tokenized, parcellated MEG.
 
+Preprint: [arXiv:2610.00746](https://arxiv.org/abs/2610.00746)
+
 ## Architecture
 
 <div align="center">
@@ -60,7 +62,7 @@ The model works on discrete tokens from the [EphysTokenizer](https://github.com/
 
 ## Data
 
-The model is trained on [Cam-CAN](https://cam-can.mrc-cbu.cam.ac.uk/dataset/) resting-state only: 621 sessions, 75 hours at 250 Hz (~8 min/session; 559 train / 62 held out). The raw (MaxFiltered) MEG data was preprocessed, source reconstructed, and parcellated onto [Schaefer100](https://osl-dynamics.readthedocs.io/en/latest/parcellations/schaefer100.html) with [osl-dynamics](https://github.com/OHBA-analysis/osl-dynamics) (see [tutorial](https://osl-dynamics.readthedocs.io/en/latest/tutorials_build/0-2_meg_batch_processing.html)), then tokenized (see [tokenizer](tokenizer/)).
+The model is trained on [Cam-CAN](https://cam-can.mrc-cbu.cam.ac.uk/dataset/) resting-state only: 621 sessions, 96.6 hours at 250 Hz (median 9.3 min/session; 559 train = 87.0 h / 62 held out = 9.6 h). The raw (MaxFiltered) MEG data was preprocessed, source reconstructed, and parcellated onto [Schaefer100](https://osl-dynamics.readthedocs.io/en/latest/parcellations/schaefer100.html) with [osl-dynamics](https://github.com/OHBA-analysis/osl-dynamics) (see [tutorial](https://osl-dynamics.readthedocs.io/en/latest/tutorials_build/0-2_meg_batch_processing.html)), then tokenized (see [tokenizer](tokenizer/)).
 
 To reproduce this pipeline on your own recordings, follow [Preparing your own data](tokenizer/README.md#preparing-your-own-data).
 
@@ -119,5 +121,5 @@ envs/                        # install_mamba3.sh (mamba3)
 
 ## References
 
-- Gu & Dao, "Mamba: Linear-Time Sequence Modeling with Selective State Spaces", 2023. [arXiv:2312.00752](https://arxiv.org/abs/2312.00752)
 - Gu & Dao, "Mamba-3: Selective State Space Models with Complex-Valued State Updates", ICLR 2026. [arXiv:2603.15569](https://arxiv.org/abs/2603.15569)
+- Huang et al., "MEG-GPT: A transformer-based foundation model for magnetoencephalography data", Imaging Neuroscience 2026. [arXiv:2510.18080](https://arxiv.org/abs/2510.18080)
